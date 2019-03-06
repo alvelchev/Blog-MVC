@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Style inputs */
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+/* Style inputs */
+input[type=email], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+/* Style inputs */
+input[type=web], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+/* Style the container/contact section 
+
+
+
+/* Create two columns that float next to eachother */
+.column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body>
+
+    <div class="page_structure">
+        <div class="column">
+            <form id="entries_form" action="/action_page.php">
+
+                <!--<label for="name">Name</label>-->
+                <input id="name" type="text" name="name" required
+                       oninvalid="this.setCustomValidity(' Въведете име!');" oninput="this.setCustomValidity('');"
+                       placeholder="Име: (задължително)" />
+                <!--not needed <label for="email">Email</label>-->
+                <input type="email" id="mail" name="mail" required
+                       oninvalid="this.setCustomValidity('Въведете адрес за електронна поща!');"
+                       oninput="this.setCustomValidity('');" placeholder="Електронна поща: (задължително)" />
+                <!--<label for="web">Web site</label>-->
+                <input type="web" id="web" name="web" required
+                       oninvalid="this.setCustomValidity('Въведете URL адрес на Web сайт!');"
+                       oninput="this.setCustomValidity('');"
+                       placeholder="Web сайт, започващ с http:// (задължително)">
+
+                <!--<label for="message">Message</label>-->
+                <textarea id="message" name="message" required
+                          oninvalid="this.setCustomValidity('Въведете съобщение!.');"
+                          oninput="this.setCustomValidity('');"
+                          placeholder="Съобщение: (задължително)"
+                          style="height:200px"></textarea>
+                <input type="button" value="Изпрати"
+                       onclick="submitForm()">
+
+                <button>Next line</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <footer id="last">
+
+    </footer>
+</body>
+</html>
+<script>function validate(event) {
+    event.target.setCustomValidity("");
+    if (!event.target.validity.valid) {
+        if (event.target.validity.valueMissing) {
+            event.target.setCustomValidity(
+                "Моля, въведете адрес за електронна поща!");
+        }
+        else {
+            if (event.target.validity.typeMismatch) {
+                event.target.setCustomValidity(
+                    "Моля, въведете валиден адрес за електронна поща!");
+            }
+        }
+    }
+}
+function submitForm() {
+    var form = document.getElementById("entries_form");
+
+    var name = document.getElementById("name");
+    var email = document.getElementById("mail");
+    var web = document.getElementById("web");
+    var message = document.getElementById("message");
+
+    if (name.checkValidity() && email.checkValidity() && web.checkValidity()&& message.checkValidity()  ) {
+
+        alert('Сървърът ще обработи получената информация в следващите 24 часа');
+    } else {
+        alert("данните не са валидни");
+    }
+
+
+
+}
+
+
+
+
+
+
+ var email = document.getElementById("mail");
+
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I expect an e-mail, darling!");
+  } else {
+    email.setCustomValidity("");
+  }
+});
+
+
+
+
+ var web = document.getElementById("web");
+
+web.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I expect an web, darling!");
+  } else {
+    email.setCustomValidity("");
+  }
+});
+
+var message = document.getElementById("message");
+
+message.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I expect an message, darling!");
+  } else {
+    email.setCustomValidity("");
+  }
+});</script>
