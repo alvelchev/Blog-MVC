@@ -16,6 +16,17 @@ namespace MVC_Blog.Controllers
             return View(post.ToList());
         }
 
-       
+
+        public ActionResult About()
+        {
+            ViewBag.message = "asdasd";
+            return View();
+        }
+        public ActionResult Contact()
+        {
+            ViewBag.message = "asdasd";
+            return View();
+        }
+
     }
 }

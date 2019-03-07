@@ -27,9 +27,13 @@ textarea {
     margin-top:20px;
 }
 
-.post >h2, .post>div{
-    background: #DDD;
-    margin:0;
-    padding:5px;
+    .post > h2, .post > div {
+        background:#c85e17;
+        margin: 0;
+        padding: 5px;
+        color: black;
+    }
 
+.article,.post{
+    background:yellow;
 }

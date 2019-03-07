@@ -5,10 +5,12 @@
 
 @model List<MVC_Blog.Models.Post>
 
+<img src="~/images/blog.jpg" />
+
 <section class="row">
     @foreach (var post in Model)
     {
-        <article class="post col-md-6">
+        <article>
             <h2 class="title">@post.Title</h2>
             <div class="about">
                 Публикувано от
